@@ -1,0 +1,42 @@
+.add-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.message-signal {
+    font-family: 'Tajawal', sans-serif;
+    width: 15px;
+    height: 15px;
+    font-size: smaller;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: rgb(5, 5, 75);
+    background-color: skyblue;
+    margin-right: 5px;
+    margin-top: 5px;
+    box-shadow: 0px 0px 3px 0px rgb(174, 212, 224, 0.5);
+}
+
+.disnone {
+    display: none;
+}
+
+.chat-loading {
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}

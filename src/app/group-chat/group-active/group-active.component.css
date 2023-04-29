@@ -1,0 +1,84 @@
+.group-active-container {
+    width: 48vw;
+    height: 90vh;
+    border: 1px solid #555;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.group-messages-container {
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #555;
+}
+
+.group-received-message {
+    display: flex;
+    align-items: center;
+    margin: 3px 0px;
+}
+
+.group-sent-message {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin: 3px 0px;
+}
+
+.group-info-message {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    color: #ccc;
+}
+
+.group-info-message p {
+    width: 50%;
+    padding: 5px;
+    margin: 5px 0px;
+    border-radius: 5px;
+    font-size: .7rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(173, 95, 0);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 50%;
+}
+
+.sender-details img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 1px 0px 5px 0px rgba(248, 230, 197, 0.822);
+}
+
+.group-header {
+    height: 15%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+}
+
+.group-header h2 {
+    font-family: 'Tajawal', sans-serif;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.group-empty-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lilita One', cursive;
+    font-size: 1.5rem;
+    text-align: center;
+    color: rgb(252, 219, 129);
+
+}

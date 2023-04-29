@@ -1,0 +1,23 @@
+<div *ngIf="!loading" class="container">
+    <h1>Chatty! Join now</h1>
+    <div class="register-form">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <input formControlName="fullName" type="text" placeholder="Full Name">
+            <input formControlName="phone" type="text" placeholder="Phone number">
+            <input formControlName="password" type="password" placeholder="Password">
+            <button [disabled]="!registerForm.valid" type="submit">Join</button>
+        </form>
+    </div>
+    <span class="switch-to-login">
+        Have an account? 
+        <a [routerLink]="['/login']">Login</a>
+    </span>
+</div>
+
+<div *ngIf="loading" class="register-loading-container">
+    <app-loading></app-loading>
+</div>
+
+<app-toast-message *ngIf="error" [type]="'error'"title="Register Error"
+ content="This phone number is already registered!">
+</app-toast-message>

@@ -1,0 +1,11 @@
+<div #element class="toast-message" ngClass="toast-message-{{ type }}" >
+    <div class="message-title" ngClass="{{type}}-title">
+        <p>{{ title }}</p>
+        <div class="icon"><img [src]="iconPath" alt=""></div>
+    </div>
+    <div class="message-content">
+        {{ content }}
+    </div>
+</div>
+
+<audio #sound [src]="soundPath"></audio>

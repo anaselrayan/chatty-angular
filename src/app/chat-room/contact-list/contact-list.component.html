@@ -1,0 +1,49 @@
+<div *ngIf="!loading" class="contact-list">
+    <div *ngFor="let contact of contacts"
+      (click)="onSelectContact(contact.id, signalEl)"
+      class="contact-card">
+      <div class="card-details">
+        <div class="card-image">
+          <img [src]="contact.imageUrl" alt="">
+        </div>
+        <h3 [title]="contact.name">{{ contact.name }}</h3>
+        <div title="remove" class="remove-contact" (click)="onRemoveContact(contact)">
+          <img src="assets/icons/delete.png" alt="">
+        </div>
+      </div>
+      <div class="card-message">
+        <p [id]="['last-message-' + contact.id]">{{ contact.phone }}</p>
+        <div #signalEl [id]="['message-signal-' + contact.id]"
+         class="message-signal disnone">0</div>
+      </div>
+    </div>
+    <div (click)="onAddContactIcon()" class="contact-card add-contact">
+      <div class="add-icon">
+        <img src="assets/icons/add_contact_icon.png">
+      </div>
+    </div>
+</div>
+
+<app-add-contact *ngIf="addContactVisible"
+   (closeModal)="onCloseAddContactComponent()"
+   (addContact)="onAddContact($event)"
+   title="Add New Contact"
+    placeHolder="Contact phone">
+</app-add-contact>
+
+<app-toast-message *ngIf="addContactError" 
+  [title]="'Operation failed'"
+  type="error" 
+  content="Invalid phone number">
+</app-toast-message>
+
+
+<app-toast-message  *ngIf="addedSuccessfully"
+  [title]="'Successful operation'"
+  type="success" 
+  content="contact has been added successfully!">
+</app-toast-message>
+
+<div *ngIf="loading" class="chat-loading">
+  <app-loading></app-loading>
+</div>

@@ -1,0 +1,17 @@
+<div *ngIf="!loading"  class="header-line"></div>
+
+<div style="position: relative;" *ngIf="!loading" #messagesContainer class="messages-container">
+  <div class="go-to-end"
+     title="Go to end" (click)="scrollMessageContainer()">
+    <img src="assets/icons/arrow-down.png" alt="">
+  </div>
+  <div *ngFor="let msg of messages" [ngClass]="{'sent-message': isSent(msg), 'received-message': !isSent(msg)}">
+    <p>{{ msg.content }}</p>
+    <span class="timestamp">{{ msg.sentAt | date:'shortTime' }}</span>
+  </div>
+</div>
+<div class="loading-container">
+  <app-loading *ngIf="loading"></app-loading>
+</div>
+
+<div *ngIf="!loading" class="footer-line"></div>

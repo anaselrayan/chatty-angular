@@ -1,0 +1,82 @@
+<div *ngIf="!listLoading" class="group-list-container">
+    <div class="group-list-nav">
+        <div [ngClass]="{'item-active': selectedNav == 1}" (click)="onFilterAllRooms()" class="nav-item">All</div>
+        <div [ngClass]="{'item-active': selectedNav == 2}" (click)="onFilterMyRooms()" class="nav-item">My Rooms</div>
+        <div [ngClass]="{'item-active': selectedNav == 3}" (click)="onFilterGlobalRooms()" class="nav-item">Global</div>
+    </div>
+    <div [ngStyle]="{'background': 'radial-gradient(' + getLightColor(room.background, 3) + ',' + room.background + ')' }"
+        class="group-card" *ngFor="let room of roomList; let i = index">
+
+        <div (click)="onSelectRoom(room)" class="group-info">
+            <h2>{{ room.name }}</h2>
+            <div class="group-owner">
+                <img [src]="room.contact.imageUrl">
+                <p>{{ room.contact.name }}</p>
+            </div>
+        </div>
+
+        <div class="group-meta">
+            <div class="group-members">
+                <p>Online</p>
+                <span>0</span>
+            </div> 
+            <div class="group-actions">
+                <div (click)="onUnlockRoom(room.id)"
+                    *ngIf="room.contact.id == userContact.id"
+                    [id]="['unlock-room-'+room.id]" class="disnone" title="unlock">
+                    <img src="assets/icons/locked.png" alt="">
+                </div>
+                <div (click)="onLockRoom(room.id)"
+                    *ngIf="room.contact.id == userContact.id"
+                    [id]="['lock-room-'+room.id]" title="lcok">
+                    <img src="assets/icons/unlocked.png" alt="">
+                </div>
+                <div (click)="onDeleteRoom(room.id, i)"
+                    *ngIf="room.contact.id == userContact.id"
+                    class="remove-room" title="remove">
+                    <img src="assets/icons/delete.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="roomList.length == 0 && selectedNav != 2" class="no-rooms">
+        No available rooms!
+    </div>
+    <div *ngIf="selectedNav == 2" (click)="onAddGroupIconClicked()" class="group-card">
+        <div class="add-icon group-icon">
+          <img src="assets/icons/add_contact_icon.png">
+        </div>
+    </div>
+</div>
+
+<div *ngIf="listLoading" class="group-list-loading">
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="roomLoading" class="join-room-loading">
+    <div class="loading-component">
+        <app-loading></app-loading>
+        <br>
+        <p>Sending Join Request...</p>
+    </div>
+</div>
+
+<app-add-contact 
+    *ngIf="addGroupVisible"
+    (closeModal)="onCloseAddGroupModal()"
+    (addContact)="onAddGroup($event)"
+    title="Create Room"
+    placeHolder="Room name">
+</app-add-contact>
+
+<app-toast-message *ngIf="roomAddedSuccessfully"
+  [title]="'Successful Operation'"
+  type="success" 
+  content="Room created successfully">
+</app-toast-message>
+
+<app-toast-message *ngIf="joinError"
+    [title]="'Request rejected'"
+    type="error" 
+    content="The room is locked or full">
+</app-toast-message>

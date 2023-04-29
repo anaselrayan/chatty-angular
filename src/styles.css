@@ -1,1 +1,344 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Pacifico&display=swap'); 
+/* 
+font-family: 'Lilita One', cursive;
+font-family: 'Pacifico', cursive;
+font-family: 'Tajawal', sans-serif;
+font-family: 'Poppins', sans-serif;
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+::selection {
+    color: white;
+    background-color: rgb(81, 109, 110);
+}
+
+body {
+    background-color: #111;
+    user-select: none;
+}
+
+
+
+.chat-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
+    height: 90vh;
+    width: 70%;
+    margin: 2% auto;
+}
+
+.contact-list::-webkit-scrollbar {
+    display: none;
+}
+
+.contact-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #777;
+    border-radius: 10px;
+    padding: 5px 0;
+    overflow: scroll;
+    height: 100%;
+    width: 20vw;
+    scrollbar-width: none;
+}
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+    width: 95%;
+    height: 60px;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.contact-card:hover {
+    background-color: #333;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0px 1px 10px -2px rgba(255, 255, 255, 0.5)
+}
+
+.card-details h3 {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: #eee;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-message {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -30px;
+    margin-left: 80px;
+}
+
+.card-message p {
+    font-family: 'Tajawal', sans-serif;
+    font-size: small;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 5px;
+    width: 85%;
+    color: rgb(132, 150, 165);
+    font-weight: bold;
+}
+
+
+.chat-details {
+    height: 100%;
+    width: 52vw;
+    margin-left: 2%;
+    border-radius: 10px;
+    border: 1px solid #666;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sent-message, .received-message {
+    margin: 5px 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    width: fit-content;
+    clear: both;
+    width: fit-content;
+    max-width: 70%;
+    user-select: text;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.sent-message p, .received-message p {
+    font-family: 'Tajawal', sans-serif;
+}
+.send-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: yellowgreen;
+    transition: 300ms;
+}
+
+.send-btn img {
+    width: 40%;
+    position: relative;
+    left: 4%;
+    color: #777;
+}
+
+.sent-message {
+    background-color: rgb(7, 65, 33);
+    color: white;
+    float: right;
+    position: relative;
+    border-top-right-radius: 0;
+    margin-top: 0px;
+}
+
+span.timestamp {
+    font-family: 'Tajawal', sans-serif;
+    display: inline-block;
+    font-size: small;
+    color: #777;
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 5px;
+    position: relative;
+    top: 5px;
+}
+
+
+.received-message {
+    background-color: rgb(30, 42, 44);
+    color: white;
+    border-top-left-radius: 0;
+}
+
+.chat-header {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.messages-container {
+    height: 58vh;
+    margin: 0 5px;
+    overflow: scroll;
+    padding: 5px;
+}
+
+.messages-container::-webkit-scrollbar {
+    display: none;
+}
+
+.header-line {
+    width: 98%;
+    margin: 0px auto;
+    height: 1px;
+    background-color: #333;
+}
+
+.footer-line {
+    width: 98%;
+    margin: 0px auto;
+    height: 1px;
+    background-color: #333;
+}
+
+.chat-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0px 1px 10px -3px rgba(255, 255, 255, 0.5);
+}
+
+.chat-header .contact-info {
+    display: flex;
+}
+
+.chat-header h2 {
+    font-size: 2.4rem;
+    letter-spacing: 2px;
+    color: #eee;
+    font-family: 'Poppins', sans-serif;
+}
+
+.chat-header .contact-status {
+    display: flex;
+    align-items: center;
+    margin-left: 90px;
+    margin-top: -25px;
+    color: #777;
+}
+
+.chat-header .status-color {
+    width: 10px;
+    height: 10px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.chat-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.chat-actions button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #222;
+    border: none;
+    transition: 300ms;
+}
+
+.chat-actions button:hover {
+    background-color: #333;
+}
+
+.chat-actions textarea {
+    font-family: 'Tajawal', sans-serif;
+    width: 50%;
+    background: none;
+    border: 1px solid #555;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    transition: 300ms;
+    resize: none;
+    letter-spacing: 1px;
+}
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.chat-actions textarea:focus {
+    outline: none;
+    border: 1px solid yellowgreen;
+    box-shadow: none;
+}
+
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+input:nth-of-type(text){
+    border: 1px solid green;
+}
+
+.remove-contact {
+    margin-left: 10px;
+    padding: 0px 5px;
+}
+
+.remove-contact img {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.remove-contact img:hover {
+    box-shadow: 0px 1px 10px 0px rgba(255, 50, 50);
+}
+
+.go-to-end {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    margin-bottom: -20px;
+    margin-top: -20px;
+    border-radius: 50%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.go-to-end img {
+    width: 16px;
+}
+
+.go-to-end:hover {
+    background-color: #333;
+}

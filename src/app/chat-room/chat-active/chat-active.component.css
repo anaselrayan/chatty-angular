@@ -1,0 +1,28 @@
+.welcome-chat {
+  background: url(src\assets\images\chat-bg.jpg);
+  background-size: cover;
+}
+
+.welcome-chat h2, .empty-chat h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ccc;
+  font-family: 'Pacifico', cursive;
+
+}
+
+.empty-chat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-chat span {
+  font-family: 'Lilita One', cursive;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  background: -webkit-linear-gradient(rgb(229, 255, 196),  #9acd32);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

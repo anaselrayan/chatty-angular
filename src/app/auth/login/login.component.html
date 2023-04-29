@@ -1,0 +1,21 @@
+<div *ngIf="!loading" class="container">
+    <h1>Login to see your chats</h1>
+    <div class="login-form">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmitForm()">
+            <input formControlName="phone" type="text" placeholder="Phone number">
+            <input formControlName="password" type="password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <span class="switch-to-register">New to chatty? 
+        <a [routerLink]="['/register']">Register</a>
+    </span>
+</div>
+
+<div *ngIf="loading" class="login-loading-container">
+    <app-loading></app-loading>
+</div>
+
+<app-toast-message *ngIf="error" type="error" title="Authentication Error"
+ content="Invalid credintials!">
+</app-toast-message>

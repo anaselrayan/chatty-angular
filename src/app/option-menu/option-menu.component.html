@@ -1,0 +1,14 @@
+<div class="option-menu-container">
+    <div class="profile-image">
+        <img [src]="userDetails.imageUrl" alt="">
+    </div>
+
+    <div class="option-menu">
+        <ul>
+            <li [routerLink]="['/chat']">Profile <img src="assets/icons/user.png" alt=""></li>
+            <li [routerLink]="['/chat']">Chat <img src="assets/icons/chat.png" alt=""></li>
+            <li [routerLink]="['/groups']">Rooms <img src="assets/icons/group.png" alt=""></li>
+            <li><a href="/login">Logout <img src="assets/icons/logout.png" alt=""></a></li>
+        </ul>
+    </div>
+</div>

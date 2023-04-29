@@ -1,0 +1,9 @@
+{
+    "/ws/*": {
+        "target": "http://localhost:4200",
+        "changeOrigin": true,
+        "secure": false,
+        "logLevel": "debug",
+        "ws": true
+      }
+}

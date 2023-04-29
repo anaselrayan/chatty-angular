@@ -1,0 +1,42 @@
+<div *ngIf="roomListSize > 0 && activeRoomId > 0" class="group-active-container">
+    <div class="group-header">
+        
+        <h2 [ngStyle]="{'color': getLightColor(activeRoom.background, 5)}">
+             {{ activeRoom.name }} 
+        </h2>
+        <div class="group-details"> 
+            
+        </div>
+    </div>
+    <div class="group-messages-container messages-container">
+        <div class="group-info-message">
+            <p>You are in room {{activeRoom.id}}</p>
+        </div>
+        <div class="go-to-end" title="Go to end">
+            <img src="assets/icons/arrow-down.png" alt="">
+        </div>
+        <div *ngFor="let msg of messages"
+        [ngClass]="{'group-received-message': msg.type == 1, 'group-sent-message': msg.type == -1}">
+            <div class="sender-details">
+                <img *ngIf="msg.imageVisible" [src]="msg.source.imageUrl" alt="">
+            </div>
+            <div [ngClass]="{'received-message': msg.type == 1, 'sent-message': msg.type == -1}">
+                <p>{{ msg.content }}</p>
+                <span class="timestamp"> {{ msg.sentAt | date:'shortTime' }} </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="chat-actions">
+        <textarea #messageInput
+          rows="1"
+          placeholder="Type your message . . ." type="text"></textarea>
+        <button (click)="onSendMessage(messageInput)" class="send-btn" title="send">
+          <img src="assets/icons/send-message.png" alt="Send">
+        </button>
+      </div>
+</div>
+
+<div *ngIf="roomListSize == 0 || activeRoomId == 0" class="group-active-container group-empty-container">
+    No Selected Room!
+</div>

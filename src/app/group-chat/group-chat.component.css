@@ -1,0 +1,9 @@
+.group-chat-container {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80vw;
+    height: 90vh;
+    margin-top: 5vh;
+}

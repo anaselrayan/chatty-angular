@@ -1,0 +1,31 @@
+<div *ngIf="currentContact.id > 0 && contactSize > 0" class="chat-details">
+    <div class="chat-header">
+      <div class="contact-info">
+        <img [src]="currentContact.imageUrl" alt="">
+        <h2>{{ currentContact.name }}</h2>
+      </div>
+      <div class="contact-status">
+        <div class="status-color"></div>
+        <p>online</p>
+      </div>
+    </div>
+
+    <app-chat-history></app-chat-history>
+
+    <div class="chat-actions">
+      <textarea #messageInput
+        rows="1"
+        placeholder="Type your message . . ." type="text"></textarea>
+      <button (click)="sendMessage(messageInput)" class="send-btn" title="send">
+        <img src="assets/icons/send-message.png" alt="Send">
+      </button>
+    </div>
+</div>
+
+<div *ngIf="currentContact.id < 1" class="chat-details welcome-chat">
+  <h2>Welcome Back 👋 <span>{{ userContactInfo.name | firstWord }}</span></h2>
+</div>
+
+<div *ngIf="contactSize == 0" class="chat-details empty-chat">
+  <h2> You have no contacts</h2>
+</div>

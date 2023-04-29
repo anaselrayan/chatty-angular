@@ -1,0 +1,80 @@
+:root {
+    --error-color: rgb(250, 67, 67);
+    --info-color: rgb(78, 184, 255);
+    --success-color: rgb(108, 250, 42);
+}
+
+.toast-message {
+    width: fit-content;
+    height: fit-content;
+    position: fixed;
+    z-index: 100;
+    top: 50px;
+    left: -500px;
+    border-radius: 10px;
+    color: #bbb;
+    background-color: rgb(34, 34, 34, 0.5);
+    backdrop-filter: blur(10px);
+    transition: 500ms;
+    user-select: text;
+}
+
+.translate {
+    left: 50px;
+}
+
+.disappear {
+    left: -550px;
+}
+
+.toast-message-error {
+    border: 1px solid rgb(250, 67, 67);
+}
+
+.toast-message-info {
+    border: 1px solid rgb(78, 184, 255);
+}
+
+.toast-message-success {
+    border: 1px solid  yellowgreen;
+}
+
+.message-title {
+    font-size: 1.2rem;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+}
+
+.message-title p {
+    font-family: 'Lilita One', cursive;
+}
+.message-content {
+    padding: 10px;
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-title img {
+    width: 16px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.error-title {
+    color: rgb(250, 133, 133);
+    border-bottom: 1px solid rgb(250, 67, 67);
+}
+
+.info-title {
+    color: rgb(156, 210, 247);
+    border-bottom: 1px solid rgb(78, 184, 255)
+}
+
+.success-title {
+    color: rgb(160, 253, 116);
+    border-bottom: 1px solid  yellowgreen;
+}
+

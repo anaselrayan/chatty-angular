@@ -1,0 +1,8 @@
+<div #element class="modal">
+    <div (click)="onClose()" class="close"> <img src="assets/icons/close.png"></div>
+    <h3>{{ title }} <span><img src="assets/icons/add_contact.png"></span></h3>
+    <form>
+        <input #phoneInput type="text" [placeholder]="placeHolder">
+        <button (click)="onAddContact(phoneInput.value)" type="button" >ADD</button>
+    </form>
+</div>
